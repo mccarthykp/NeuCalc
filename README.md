@@ -1,4 +1,6 @@
-## ts-calculator
+## Neumorphism-Calculator
+
+An exploration of Neumorphism through a simple calculator.
 
 Please leave a :star: if you like it!
 
