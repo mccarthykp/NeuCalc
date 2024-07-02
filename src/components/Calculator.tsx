@@ -81,12 +81,12 @@ const Calculator: React.FC = () => {
   }
 
   return (
-    <div className="bg-gray-100 inline-block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[450px] md:w-[500px] shadow-[8px_8px_8px_rgb(195,195,195),0_0_8px_8px_white] rounded-[40px] p-8">
-      <input 
-        type="text"
+    <div className="bg-gray-100 inline-block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[450px] md:w-[500px] md:shadow-[8px_8px_8px_rgb(195,195,195),0_0_8px_8px_white] rounded-[40px] p-8 select-none"
+    >
+      <input
         value={screenValue} 
         readOnly 
-        className="font-sourceCodePro text-4xl md:text-5xl w-full my-6 pr-6 h-[82.5px] shadow-[inset_6px_6px_5px_rgb(195,195,195),inset_0_0_10px_8px_white] border-3 border-transparent text-black text-right leading-[75px] rounded-[25px]"
+        className="font-sourceCodePro text-4xl md:text-5xl w-full my-6 pr-6 h-[82.5px] shadow-[inset_6px_6px_5px_rgb(195,195,195),inset_0_0_10px_8px_white] border-3 border-transparent text-black text-right leading-[75px] rounded-[25px] outline-none select-none cursor-default"
       />
       <div className="grid grid-cols-4 gap-4 md:gap-6">
         {["/", "*", "-", "+", "7", "8", "9", "AC", "4", "5", "6", "1", "2", "3", "=", "0", ".",].map((btn) => (
