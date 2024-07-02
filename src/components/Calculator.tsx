@@ -104,7 +104,7 @@ const Calculator: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 m-auto md:inline-block md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 w-[425px] md:w-[500px] md:shadow-[8px_8px_8px_rgb(195,195,195),0_0_8px_8px_white] md:rounded-[40px] py-10 px-6 select-none"
+    <div className="bg-gray-100 m-auto md:inline-block md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 w-[425px] md:w-[500px] md:shadow-[8px_8px_8px_rgb(195,195,195),0_0_8px_8px_white] md:rounded-[40px] py-8 px-6 select-none"
     >
       <input
         value={screenValue} 
