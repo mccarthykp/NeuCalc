@@ -6,6 +6,7 @@ const Calculator: React.FC = () => {
   const [, setSecondPart] = useState<number>(0);
   const [op, setOp] = useState<string | null>(null);
   const [dot, setDot] = useState<boolean>(false);
+  const [focusedBtn, setFocusedBtn] = useState<string | null>(null);
 
   const numbers = (value: string): void => {
     if (value === "=") {
@@ -80,8 +81,30 @@ const Calculator: React.FC = () => {
     }
   }
 
+  const handleButtonClick = (btn: string): void => {
+    if (btn === 'AC') {
+      deleted();
+      setFocusedBtn(btn); // Set focused button state
+      setTimeout(() => {
+        setFocusedBtn(null); // Clear focused button state after 300ms
+      }, 100);
+    } else if (btn === '.') {
+      dots(btn);
+      setFocusedBtn(btn); // Set focused button state
+      setTimeout(() => {
+        setFocusedBtn(null); // Clear focused button state after 300ms
+      }, 100);
+    } else {
+      numbers(btn);
+      setFocusedBtn(btn); // Set focused button state
+      setTimeout(() => {
+        setFocusedBtn(null); // Clear focused button state after 300ms
+      }, 100);
+    }
+  };
+
   return (
-    <div className="bg-gray-100 inline-block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[450px] md:w-[500px] md:shadow-[8px_8px_8px_rgb(195,195,195),0_0_8px_8px_white] rounded-[40px] p-8 select-none"
+    <div className="bg-gray-100 inline-block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[450px] md:w-[500px] md:shadow-[8px_8px_8px_rgb(195,195,195),0_0_8px_8px_white] rounded-[40px] p-8 px-10 select-none dura"
     >
       <input
         value={screenValue} 
@@ -92,8 +115,8 @@ const Calculator: React.FC = () => {
         {["/", "*", "-", "+", "7", "8", "9", "AC", "4", "5", "6", "1", "2", "3", "=", "0", ".",].map((btn) => (
           <button 
             key={btn} 
-            onClick={() => btn === "AC" ? deleted() : btn === "." ? dots(btn) : numbers(btn)} 
-            className={`bg-gray-100 border border-transparent rounded-[20px] text-sm md:text-lg font-medium p-[30px] shadow-[6px_6px_6px_rgb(195,195,195),0_0_10px_6px_white] hover:shadow-[inset_6px_6px_6px_rgb(195,195,195),inset_0_0_10px_6px_white] 
+            onClick={() => handleButtonClick(btn)} 
+            className={`bg-gray-100 border border-transparent rounded-[20px] text-sm md:text-lg font-medium p-[30px] shadow-[6px_6px_6px_rgb(195,195,195),0_0_10px_6px_white] md:hover:shadow-[inset_6px_6px_6px_rgb(195,195,195),inset_0_0_10px_6px_white]
             
             ${ ["*", "/", "+", "-", "AC", "="].includes(btn) ? "text-[#b84242]" : ""
             } ${
@@ -102,7 +125,8 @@ const Calculator: React.FC = () => {
               btn === "=" ? "row-span-2" : ""
             } ${
               btn === "AC" ? "row-span-2" : ""
-            }
+            } ${
+              focusedBtn === btn ? "shadow-[inset_6px_6px_6px_rgb(195,195,195),inset_0_0_10px_6px_white]" : "" // Apply class only when focused
             }`}
           >
             {btn}
