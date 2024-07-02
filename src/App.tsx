@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { applyTheme } from "./utils/themeUtils";
 // Visibility Script
 import { onDOMReady } from "./utils/domUtils";
-import './tailwind.css';
+import './styles/tailwind.css';
 // Components
 import Calculator from './components/Calculator';
 
@@ -21,7 +21,7 @@ export default function App() {
   }, []);
   
   return (
-    <div className="App min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <Calculator />
     </div>
   );
