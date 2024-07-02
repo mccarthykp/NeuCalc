@@ -5,7 +5,11 @@ export default {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sourceCodePro: ['Source Code Pro'],
+      },
+    },
   },
   plugins: [],
 };
